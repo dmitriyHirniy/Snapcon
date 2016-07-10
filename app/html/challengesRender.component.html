@@ -1,10 +1,10 @@
 
 
-<div style="margin-left: 492.5px" >
+<div style="position: absolute;margin-left: 492.5px;margin-top: 8%" >
  <div class="grid" *ngFor="let member of currentChallenge" [ngStyle]="{ 'margin-left': getMarginLeft(member.id) ,'margin-top': getMarginTop(member.id)  }" style="position: absolute">
 
-    <figure class="effect-julia">
-        <img src="{{member.photoSrc}}" alt="img01"/>
+    <figure class="effect-julia" (click)="setMember(member)" data-toggle="modal" data-target="#myModal">
+        <img src="{{member.photoSrc}}" alt="img01" />
         <figcaption>
             <!--<h2>Nice <span>Lily</span></h2>-->
             <p>{{member.likes}}</p>
@@ -15,4 +15,24 @@
     <!-- ... -->
 
  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 900px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">{{currentMember.title}}</h4>
+            </div>
+            <div class="modal-body">
+               <img src="{{currentMember.photoSrc}}" width="500" height="500"/>
+            </div>
+
+            <div class="modalInfo">
+                <h3 style="padding-left: 50px"><strong>{{currentMember.likes}}</strong>
+                 <span class="glyphicon glyphicon-heart" (click)="increaseLikes(currentMember)"></span>
+                </h3>
+            </div>
+        </div>
+    </div>
 </div>

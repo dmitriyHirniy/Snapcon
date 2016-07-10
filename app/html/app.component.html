@@ -1,0 +1,27 @@
+<div id="topPanel">
+    <div id="main-title">
+        <span>Snapcon</span>
+    </div>
+
+    <div id="title-icon">
+        <span class="glyphicon glyphicon-fire"></span>
+    </div>
+
+    <div id="top-menu">
+        <div class="menu-element" style="margin-left: 110px">
+            <h3><a [routerLink]="['/home']">Home</a></h3>
+        </div>
+
+        <div class="menu-element" style="margin-left: 400px">
+            <h3><a [routerLink]="['/challenges']">Challenges</a></h3>
+        </div>
+
+        <div class="menu-element" style="margin-left: 720px">
+            <h3><a [routerLink]="['/usersTable']">Top users</a></h3>
+        </div>
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+<challenges-render></challenges-render>

@@ -2,13 +2,15 @@ import {Component, OnInit} from "@angular/core";
 import {Member} from "../models/member.model";
 @Component({
     selector: 'challenges-render',
-    templateUrl: 'app/html/challengesRender.component.html'
+    templateUrl: 'app/html/challengesRender.component.html',
+    stylesUrl: ['app/css/challengesRender.css']
 })
 
 export class ChallengesRender implements OnInit{
     
     public currentChallenge: Member[];
-        
+    public currentMember: Member;
+
     public ngOnInit():void{
       this.currentChallenge = [
           new Member( "$_1","challenge1" , "https://img.buzzfeed.com/buzzfeed-static/static/2016-06/17/13/enhanced/buzzfeed-prod-fastlane01/grid-cell-16909-1466183824-10.jpg", 10),
@@ -17,7 +19,9 @@ export class ChallengesRender implements OnInit{
           new Member( "$_4", "challenge2" , "https://img.buzzfeed.com/buzzfeed-static/static/2016-06/17/13/enhanced/buzzfeed-prod-fastlane01/grid-cell-16909-1466183824-10.jpg", 9),
           new Member( "$_5","challenge1" , "https://img.buzzfeed.com/buzzfeed-static/static/2016-06/17/13/enhanced/buzzfeed-prod-fastlane01/grid-cell-16909-1466183824-10.jpg", 7),
           new Member( "$_6", "challenge2" , "https://img.buzzfeed.com/buzzfeed-static/static/2016-06/17/13/enhanced/buzzfeed-prod-fastlane01/grid-cell-16909-1466183824-10.jpg", 18),
-      ];  
+      ];
+
+        this.currentMember = new Member("", "", "", 0);
     }
     private row = 0;
     public getMarginLeft(id: string):number{
@@ -53,5 +57,14 @@ export class ChallengesRender implements OnInit{
         }
 
         return index;
+    }
+
+    setMember(member: Member):void{
+        console.log(member);
+        this.currentMember = member;
+    }
+    
+    public increaseLikes(member: Member){
+        member.likes++;
     }
 }
