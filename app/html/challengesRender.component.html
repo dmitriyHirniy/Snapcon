@@ -1,0 +1,18 @@
+
+
+<div style="margin-left: 492.5px" >
+ <div class="grid" *ngFor="let member of currentChallenge" [ngStyle]="{ 'margin-left': getMarginLeft(member.id) ,'margin-top': getMarginTop(member.id)  }" style="position: absolute">
+
+    <figure class="effect-julia">
+        <img src="{{member.photoSrc}}" alt="img01"/>
+        <figcaption>
+            <!--<h2>Nice <span>Lily</span></h2>-->
+            <p>{{member.likes}}</p>
+            <div class="icon"></div>
+        </figcaption>
+    </figure>
+
+    <!-- ... -->
+
+ </div>
+</div>

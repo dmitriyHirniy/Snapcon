@@ -4,3 +4,4 @@ typings/
 *.js.map
 boot.js
 .idea/
+*.model.js
