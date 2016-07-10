@@ -1,3 +1,6 @@
 *.component.js
-mode_modules/
+node_modules/
 typings/
+*.js.map
+boot.js
+
